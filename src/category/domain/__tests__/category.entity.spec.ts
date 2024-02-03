@@ -1,4 +1,5 @@
 import { Category } from "../category.entity"
+import { Uuiid } from "../value-objects/uuid.vo";
 
 describe('Category Test Unit',()=>{
     describe('constructor', () =>{
@@ -6,7 +7,7 @@ describe('Category Test Unit',()=>{
             const category = new Category({
                 name: 'Movie'
             });
-            expect(category.category_id).toBeUndefined();
+            expect(category.category_id).toBeInstanceOf(Uuiid);
             expect(category.name).toBe('Movie');
             expect(category.description).toBeNull();
             expect(category.is_active).toBeTruthy();
@@ -21,7 +22,7 @@ describe('Category Test Unit',()=>{
                 is_active: false,
                 created_at
             });
-            expect(category.category_id).toBeUndefined();
+            expect(category.category_id).toBeInstanceOf(Uuiid);
             expect(category.name).toBe('Movie');
             expect(category.description).toBe('Movie Description');
             expect(category.is_active).toBeFalsy();
